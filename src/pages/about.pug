@@ -1,0 +1,34 @@
+extends ../layouts/_base.pug
+
+block pagecss
+
+block componentcss
+  link(rel="stylesheet" href="assets/css/components/section.css")
+  link(rel="stylesheet" href="assets/css/components/testimonial.css")
+
+block title
+  | About | BS Package v14
+
+block content
+  include ../components/testimonial/_testimonial.pug
+
+  section.section
+    .container
+      .section-header
+        span.section-tag About
+        h1.section-title About BS Package v14
+        p.section-text A modern frontend system built for agency-scale work.
+  section.section
+    .container
+      h2.title-about Why BS Package v14?
+      p.text-about BS Package v14 is a comprehensive frontend system designed to meet the needs of
+  
+  +testimonial({
+    title: 'What our clients say',
+    text: 'BS Package v14 transformed our workflow completely.'
+  })
+
+  block script
+    script.
+      // Example of page-specific JavaScript
+      console.log('This is the about page');

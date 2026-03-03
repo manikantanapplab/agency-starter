@@ -1,0 +1,91 @@
+@layer components {
+  .card {
+    container: card / inline-size;
+    background: var(--color-bg-body);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: box-shadow 300ms ease, transform 300ms ease;
+
+    &:hover {
+      box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+      transform: translateY(-2px);
+    }
+
+    .card-image {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: scale 400ms ease;
+      }
+    }
+
+    &:hover .card-image img { scale: 1.05; }
+
+    .card-body {
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .card-tag {
+      font-size: var(--text-xs);
+      font-weight: var(--font-semi);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-primary);
+    }
+
+    .card-title {
+      font-size: var(--text-xl);
+      font-weight: var(--font-bold);
+      line-height: var(--leading-snug);
+      color: var(--color-text-primary);
+    }
+
+    .card-text {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-border);
+      margin-top: auto;
+    }
+
+    @container card (max-width: 300px) {
+      .card-text { display: none; }
+      .card-title { font-size: var(--text-lg); }
+      .card-body { padding: var(--space-4); }
+    }
+
+    &.card-featured {
+      border-color: var(--color-primary);
+      background: var(--color-primary-subtle);
+    }
+
+    &.card-horizontal {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+
+      .card-image { aspect-ratio: unset; height: 100%; }
+
+      @container card (max-width: 400px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &:not(:has(.card-image)) .card-body {
+      padding-top: var(--space-8);
+    }
+  }
+}

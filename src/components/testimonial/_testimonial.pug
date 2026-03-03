@@ -1,0 +1,13 @@
+//- Testimonial component — usage: +testimonial({ title: '', text: '' })
+mixin testimonial(data)
+  section.testimonial
+    .container
+      if data.title
+        h2.testimonial-title= data.title
+      if data.text
+        p.testimonial-text= data.text
+      block
+      .post
+        .card
+          h2 Card title
+          p Card content

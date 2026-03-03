@@ -1,0 +1,43 @@
+{
+  "name": "bs-package-v14",
+  "version": "14.0.0",
+  "description": "Frontend Starter Kit v14 — Pug + SCSS + Alpine.js + Bootstrap 5",
+  "type": "module",
+  "scripts": {
+    "dev": "npm-run-all --parallel watch:pug watch:sass watch:js serve",
+    "serve": "vite",
+    "watch:pug": "node scaffold/build-pug.mjs --watch",
+    "watch:sass": "node scaffold/build-sass.mjs --watch",
+    "copy:js": "copyfiles -u 2 \"src/js/**/*\" dist/assets/js",
+    "build:pug": "node scaffold/build-pug.mjs",
+    "build:sass": "node scaffold/build-sass.mjs --compressed",
+    "build": "npm run build:pug && npm run build:sass && npm run copy:js",
+    "build:prod": "npm run build && node scaffold/postcss-build.mjs && node scaffold/run-critical.mjs",
+    "new": "node scaffold/new-component.mjs",
+    "page": "node scaffold/new-page.mjs",
+    "showcase": "npm run build && node scaffold/build-showcase.mjs",
+    "format": "prettier --write \"src/**/*.{scss,js,pug}\"",
+    "build:sass:dev": "node scaffold/build-sass.mjs",
+    "build:be": "npm run build:pug && npm run build:sass && npm run copy:js",
+    "watch:js": "node scaffold/watch-js.mjs"
+  },
+  "dependencies": {
+    "alpinejs": "^3.14.0",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "swiper": "^12.1.2"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^6.0.0",
+    "autoprefixer": "^10.4.19",
+    "copyfiles": "^2.4.1",
+    "cssnano": "^7.0.1",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "prettier": "^3.2.5",
+    "pug-cli": "^1.0.0-alpha6",
+    "sass": "^1.77.0",
+    "vite": "^6.0.0"
+  }
+}

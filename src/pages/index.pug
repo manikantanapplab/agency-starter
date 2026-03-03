@@ -1,0 +1,65 @@
+extends ../layouts/_base.pug
+
+block pagecss
+
+block componentcss
+  link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css")
+  link(rel="stylesheet" href="assets/css/components/card.css")
+  //- link(rel="stylesheet" href="assets/css/components/carousel.css")
+  link(rel="stylesheet" href="assets/css/components/hero.css")
+  link(rel="stylesheet" href="assets/css/components/section.css")
+  //- link(rel="stylesheet" href="assets/css/components/swiper.css")
+
+block title
+  | Home | BS Package v14
+
+block content
+  include ../components/hero/_hero.pug
+  include ../components/card/_card.pug
+  include ../components/carousel/_carousel.pug
+  include ../components/swiper/_swiper.pug
+
+  - 
+    var slides = [
+      { image: 'https://picsum.photos/1920/500?random=1', title: 'First', text: 'Subtitle', btn: { label: 'CTA', link: '#' } },
+      { image: 'https://picsum.photos/1920/500?random=2', title: 'Second', tag: 'New' },
+      { image: 'https://picsum.photos/1920/500?random=3', title: 'Third' },
+      { image: 'https://picsum.photos/1920/500?random=4', title: 'Fourth' },
+      { image: 'https://picsum.photos/1920/500?random=5', title: 'Fifth' }
+    ]
+
+  +swiper({ slides: slides, perView: 1, perViewMd: 2, perViewLg: 3, gap: 24 })
+  //- +swiperThumbs({ slides: slides, id: 'thumbs' })
+
+  -
+    var heroData = {
+      tag: 'Welcome to v14',
+      title: 'Frontend Built Right',
+      text: 'Pug + SCSS + Alpine.js — fast, modern, maintainable.',
+      primaryBtn: { label: 'Get Started', link: '#' },
+      secondaryBtn: { label: 'View Docs', link: 'showcase.html' }
+    }
+
+  -
+    var cards = [
+      { title: 'Alpine.js', tag: 'New', text: 'Replace jQuery with lightweight Alpine.js directives.', link: '#' },
+      { title: 'CSS Layers', tag: 'Modern CSS', text: 'No more specificity wars with @layer architecture.', link: '#' },
+      { title: 'OKLCH Colors', tag: 'Design Tokens', text: 'Perceptually uniform colors with dark mode support.', link: '#' },
+      { title: 'Vite 6', tag: 'Build Tool', text: 'Sub-second dev server start, instant HMR.', link: '#' },
+      { title: 'Scaffold CLI', tag: 'DX', text: 'One command to generate a new component or page.', link: '#' },
+      { title: 'PurgeCSS', tag: 'Optimized', text: '280kb → 15kb in production. Lighthouse ready.', link: '#' }
+    ]
+
+  +hero(heroData)
+
+  section.section
+    .container
+      .section-header.centered
+        span.section-tag What's in v14
+        h2.section-title A Complete Frontend System
+        p.section-text Everything your team needs to build fast, consistent frontends.
+      +cardGrid(cards, 3)
+
+block scripts
+  script(src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js")
+  script(src="assets/js/swiper-init.js")

@@ -1,0 +1,22 @@
+//- ============================================================
+//- HERO COMPONENT — Pug Mixin
+//- Usage:
+//-   +hero({ title: 'Welcome', text: 'Subtitle', bg: 'img.jpg' })
+//-   +hero({ title: 'Centered', centered: true })
+//- ============================================================
+
+mixin hero(data)
+  section.hero(class=data.centered ? 'hero-centered' : '' style=data.bg ? `background-image:url(${data.bg})` : '')
+    .container
+      .hero-content
+        if data.tag
+          span.hero-tag= data.tag
+        h1.hero-title= data.title
+        if data.text
+          p.hero-text= data.text
+        if data.primaryBtn || data.secondaryBtn
+          .hero-actions
+            if data.primaryBtn
+              a.btn.btn-primary.btn-lg(href=data.primaryBtn.link)= data.primaryBtn.label
+            if data.secondaryBtn
+              a.btn.btn-outline-light.btn-lg(href=data.secondaryBtn.link)= data.secondaryBtn.label

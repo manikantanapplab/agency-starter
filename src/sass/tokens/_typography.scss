@@ -1,0 +1,39 @@
+// ============================================================
+// TYPOGRAPHY TOKENS — BS Package v14
+// ============================================================
+// All sizes in rem (px ÷ 16 = rem)
+// px shown in comments for quick Figma reference
+// Fluid: exact min at 320px viewport, exact max at 1920px viewport
+
+:root {
+  // ── Font families ─────────────────────────────────────────
+  --font-primary:   'Open Sans', system-ui, sans-serif;
+  --font-secondary: Georgia, serif;
+  --font-mono:      'Courier New', monospace;
+
+  // ── Font sizes ────────────────────────────────────────────
+  //                  mobile(320px)    →    desktop(1920px)
+  --text-xs:   clamp(0.75rem,  0.6900rem + 0.0031vw, 0.75rem);    // 12px  → 12px
+  --text-sm:   clamp(0.875rem, 0.7850rem + 0.0047vw, 0.875rem);   // 14px  → 14px
+  --text-base: clamp(0.875rem, 0.8500rem + 0.0078vw, 1rem);       // 14px  → 16px
+  --text-md:   clamp(1rem,     0.9750rem + 0.0078vw, 1.125rem);   // 16px  → 18px
+  --text-lg:   clamp(1.125rem, 1.1000rem + 0.0078vw, 1.25rem);    // 18px  → 20px
+  --text-xl:   clamp(1.25rem,  1.2000rem + 0.0156vw, 1.5rem);     // 20px  → 24px
+  --text-2xl:  clamp(1.5rem,   1.4000rem + 0.0312vw, 2rem);       // 24px  → 32px
+  --text-3xl:  clamp(1.75rem,  1.6000rem + 0.0469vw, 2.5rem);     // 28px  → 40px
+  --text-4xl:  clamp(2rem,     1.7000rem + 0.0938vw, 3.5rem);     // 32px  → 56px
+  --text-5xl:  clamp(2.5rem,   2.0000rem + 0.1562vw, 5rem);       // 40px  → 80px
+
+  // ── Line heights ──────────────────────────────────────────
+  --leading-tight:  1.2;   // headings
+  --leading-snug:   1.4;   // subheadings
+  --leading-normal: 1.6;   // body text
+  --leading-loose:  1.8;   // captions, labels
+
+  // ── Font weights ──────────────────────────────────────────
+  --font-light:   300;
+  --font-regular: 400;
+  --font-medium:  500;
+  --font-semi:    600;
+  --font-bold:    700;
+}

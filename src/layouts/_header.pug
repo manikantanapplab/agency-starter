@@ -1,0 +1,56 @@
+include ../components/nav/_nav.pug
+
+nav.navbar.navbar-expand-lg.site-header(
+  x-data="navbar"
+  :class="{ 'is-scrolled': scrolled }"
+)
+  .container
+    //- Logo
+    a.navbar-brand.nav-logo(href="/")
+      img(src="assets/images/page-logo.svg" alt="Logo" height="40")
+
+    //- Bootstrap mobile toggler
+    button.navbar-toggler(
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNav"
+      aria-controls="mainNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    )
+      span.navbar-toggler-icon
+
+    //- Collapsible menu
+    #mainNav.collapse.navbar-collapse
+      ul.navbar-nav.ms-auto.mb-2.mb-lg-0
+        li.nav-item
+          a.nav-link(href="/") Home
+        li.nav-item
+          a.nav-link(href="/about.html") About
+        li.nav-item
+          a.nav-link(href="#") Services
+        //- Dropdown example
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle(
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          ) More
+          ul.dropdown-menu
+            li: a.dropdown-item(href="#") Item One
+            li: a.dropdown-item(href="#") Item Two
+            li: hr.dropdown-divider
+            li: a.dropdown-item(href="#") Item Three
+        li.nav-item
+          a.nav-link(href="#") Contact
+
+      //- Nav actions — dark mode toggle
+      .nav-actions.d-flex.align-items-center.ms-3
+        button.btn.btn-sm.btn-outline-secondary(
+          x-data="themeToggle"
+          @click="toggle"
+          :aria-label="dark ? 'Switch to light mode' : 'Switch to dark mode'"
+        )
+          i.bi(x-show="!dark" class="bi-moon-fill")
+          i.bi(x-show="dark" class="bi-sun-fill")
