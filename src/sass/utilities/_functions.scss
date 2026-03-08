@@ -1,16 +1,42 @@
+@use "sass:map";
+@use '../utilities/mixins' as *;
+
 @layer utilities {
   $color-map: (
-    "primary":   var(--color-primary),
+    "primary": var(--color-primary),
     "secondary": var(--color-secondary),
-    "success":   var(--color-success),
-    "warning":   var(--color-warning),
-    "error":     var(--color-error),
-    "white":     var(--color-white),
-    "black":     var(--color-black),
+    "success": var(--color-success),
+    "warning": var(--color-warning),
+    "error": var(--color-error),
+    "white": var(--color-white),
+    "black": var(--color-black),
   );
 
-  @each $name, $color in $color-map {
-    .bg-#{$name}   { background-color: #{$color} !important; }
-    .text-#{$name} { color: #{$color} !important; }
+@each $name, $color in $color-map {
+  .bg-#{$name} {
+    background-color: #{$color} !important;
   }
+
+  .text-#{$name} {
+    color: #{$color} !important;
+  }
+}
+
+// ── Dynamic gap utilities: gap-1 to gap-50 ─────────────────
+@for $i from 1 through 50 {
+  .g-#{$i} {
+    gap: rem($i);
+  }
+
+  // g-16 = 16px, g-24 = 24px
+}
+
+// ── Dynamic font-size utilities: fs-10 to fs-100 ───────────
+@for $i from 10 through 100 {
+  .fs-#{$i} {
+    font-size: rem($i);
+  }
+
+  // fs-20=20px, fs-48=48px etc.
+}
 }

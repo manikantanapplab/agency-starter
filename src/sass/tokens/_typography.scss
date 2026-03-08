@@ -15,7 +15,7 @@
   //                  mobile(320px)    →    desktop(1920px)
   --text-xs:   clamp(0.75rem,  0.6900rem + 0.0031vw, 0.75rem);    // 12px  → 12px
   --text-sm:   clamp(0.875rem, 0.7850rem + 0.0047vw, 0.875rem);   // 14px  → 14px
-  --text-base: clamp(0.875rem, 0.8500rem + 0.0078vw, 1rem);       // 14px  → 16px
+  --text-base: clamp(1rem, 0.8500rem + 0.0078vw, 1rem);       // 16px  → 16px
   --text-md:   clamp(1rem,     0.9750rem + 0.0078vw, 1.125rem);   // 16px  → 18px
   --text-lg:   clamp(1.125rem, 1.1000rem + 0.0078vw, 1.25rem);    // 18px  → 20px
   --text-xl:   clamp(1.25rem,  1.2000rem + 0.0156vw, 1.5rem);     // 20px  → 24px
