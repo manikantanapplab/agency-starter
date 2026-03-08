@@ -9,6 +9,7 @@ block componentcss
   link(rel="stylesheet" href="assets/css/components/hero.css")
   link(rel="stylesheet" href="assets/css/components/section.css")
   link(rel="stylesheet" href="assets/css/components/swiper.css")
+  link(rel="stylesheet" href="assets/css/components/testcomponent.css")
 
 block title
   | Home | BS Package v14
@@ -18,6 +19,7 @@ block content
   include ../components/card/_card.pug
   include ../components/carousel/_carousel.pug
   include ../components/swiper/_swiper.pug
+  include ../components//testcomponent/_testcomponent.pug
 
   - 
     var slides = [
@@ -30,6 +32,9 @@ block content
 
   +swiper({ slides: slides, perView: 1, perViewMd: 2, perViewLg: 3, gap: 24 })
   //- +swiperThumbs({ slides: slides, id: 'thumbs' })
+
+  +testcomponent({ title: 'Test Component', text: 'This is a reusable test component. You can pass any content you want into the block when you use it.' })
+    p This paragraph is passed in as block content, demonstrating how you can mix static data with dynamic content in the test component.
 
   -
     var heroData = {

@@ -11,13 +11,14 @@
 @use 'base/base';
 @use '../layouts/header';
 
-// Components (7 found)
+// Components (8 found)
 @use '../components/button/button';
 @use '../components/card/card';
 @use '../components/carousel/carousel';
 @use '../components/hero/hero';
 @use '../components/section/section';
 @use '../components/swiper/swiper';
+@use '../components/testcomponent/testcomponent';
 @use '../components/testimonial/testimonial';
 
 // Page styles (0 found)
