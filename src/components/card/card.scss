@@ -1,3 +1,5 @@
+@use '../../sass/utilities/mixins' as *;
+
 @layer components {
   .card {
     container: card / inline-size;
@@ -11,7 +13,7 @@
       box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
       transform: translateY(-2px);
     }
-
+    
     .card-image {
       aspect-ratio: 16 / 9;
       overflow: hidden;
@@ -88,4 +90,15 @@
       padding-top: var(--space-8);
     }
   }
+  .card-normal {
+    box-shadow: none;
+    border: none;
+    &:hover {
+      box-shadow: none;
+      transform: none;
+    }
+  }
+}
+.p-20f40 {
+  @include fluid-steps(padding, (20px, 40px));
 }

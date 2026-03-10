@@ -1,0 +1,7 @@
+@use '../../sass/utilities/mixins' as *;
+
+@layer components {
+  .breadcrumb-wrapper {
+    padding-inline: rem(12);
+  }
+}

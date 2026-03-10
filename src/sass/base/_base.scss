@@ -1,10 +1,49 @@
+@use '../utilities/mixins' as *;
+
 @layer base {
-  h1, .h1 { font-size: var(--text-5xl); line-height: var(--leading-tight); }
-  h2, .h2 { font-size: var(--text-4xl); line-height: var(--leading-tight); }
-  h3, .h3 { font-size: var(--text-3xl); line-height: var(--leading-snug); }
-  h4, .h4 { font-size: var(--text-2xl); line-height: var(--leading-snug); }
-  h5, .h5 { font-size: var(--text-xl); }
-  h6, .h6 { font-size: var(--text-lg); }
+  body {
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    font-weight: var(--font-regular);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-body);
+    min-height: 100dvh;
+  }
+
+    h1,
+    .h1 {
+      font-size: var(--text-5xl);
+      line-height: var(--leading-tight);
+    }
+  
+    h2,
+    .h2 {
+      @include fluid-steps(font-size, (22px, 28px));
+      line-height: var(--leading-tight);
+    }
+  
+    h3,
+    .h3 {
+      font-size: var(--text-3xl);
+      line-height: var(--leading-snug);
+    }
+  
+    h4,
+    .h4 {
+      font-size: var(--text-2xl);
+      line-height: var(--leading-snug);
+    }
+  
+    h5,
+    .h5 {
+      font-size: var(--text-xl);
+    }
+  
+    h6,
+    .h6 {
+      font-size: var(--text-lg);
+    }
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: var(--font-bold);
@@ -19,7 +58,7 @@
   }
 
   a {
-    color: var(--color-primary);
+    color: var(--text-primary);
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
     transition: color 200ms ease;

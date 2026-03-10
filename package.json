@@ -4,14 +4,14 @@
   "description": "Frontend Starter Kit v14 — Pug + SCSS + Alpine.js + Bootstrap 5",
   "type": "module",
   "scripts": {
-    "dev": "npm-run-all --parallel watch:pug watch:sass watch:js serve",
+    "dev": "npm-run-all --parallel watch:pug watch:sass watch:js watch:assets serve",
     "serve": "vite",
     "watch:pug": "node scaffold/build-pug.mjs --watch",
     "watch:sass": "node scaffold/build-sass.mjs --watch",
     "copy:js": "copyfiles -u 2 \"src/js/**/*\" dist/assets/js",
     "build:pug": "node scaffold/build-pug.mjs",
     "build:sass": "node scaffold/build-sass.mjs --compressed",
-    "build": "npm run build:pug && npm run build:sass && npm run copy:js",
+    "build": "npm run build:pug && npm run build:sass && npm run copy:js && npm run copy:assets",
     "build:prod": "npm run build && node scaffold/postcss-build.mjs && node scaffold/run-critical.mjs",
     "new": "node scaffold/new-component.mjs",
     "page": "node scaffold/new-page.mjs",
@@ -19,7 +19,9 @@
     "format": "prettier --write \"src/**/*.{scss,js,pug}\"",
     "build:sass:dev": "node scaffold/build-sass.mjs",
     "build:be": "npm run build:pug && npm run build:sass && npm run copy:js",
-    "watch:js": "node scaffold/watch-js.mjs"
+    "watch:js": "node scaffold/watch-js.mjs",
+    "copy:assets": "copyfiles -u 2 \"src/assets/**/*\" dist/assets",
+    "watch:assets": "node scaffold/watch-assets.mjs"
   },
   "dependencies": {
     "alpinejs": "^3.14.0",

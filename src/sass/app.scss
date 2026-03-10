@@ -11,14 +11,17 @@
 @use 'base/base';
 @use '../layouts/header';
 
-// Components (8 found)
+// Components
+@use '../components/page-aside/page-aside';
+@use '../components/breadcrumb/breadcrumb';
+@use '../components/app-head/app-head';
+@use '../components/apicard/apicard'; (8 found)
 @use '../components/button/button';
 @use '../components/card/card';
 @use '../components/carousel/carousel';
 @use '../components/hero/hero';
 @use '../components/section/section';
 @use '../components/swiper/swiper';
-@use '../components/testcomponent/testcomponent';
 @use '../components/testimonial/testimonial';
 
 // Page styles (0 found)

@@ -4,10 +4,14 @@
 
 //- Basic nav links
 mixin navLinks(items, className)
-  ul(class=className || 'nav-links')
+  ul.mb-0(class=className || 'nav-links')
     each item in items
       li.nav-item(class=item.active ? 'is-active' : '')
-        a.nav-link(href=item.href)= item.label
+        a.nav-link(href=item.href)
+          if item.icon
+            i(style=`-webkit-mask-image: url(${item.icon})`)
+
+          = item.label
 
 //- Dropdown nav item
 mixin navDropdown(label, items)
