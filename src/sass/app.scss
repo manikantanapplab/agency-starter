@@ -11,18 +11,23 @@
 @use 'base/base';
 @use '../layouts/header';
 
-// Components
-@use '../components/page-aside/page-aside';
-@use '../components/breadcrumb/breadcrumb';
-@use '../components/app-head/app-head';
-@use '../components/apicard/apicard'; (8 found)
-@use '../components/button/button';
-@use '../components/card/card';
-@use '../components/carousel/carousel';
-@use '../components/hero/hero';
-@use '../components/section/section';
-@use '../components/swiper/swiper';
-@use '../components/testimonial/testimonial';
+// Components (12 found)
+@use '../components/apicard/apicard.utilities.generated';
+@use '../components/app-head/app-head.utilities.generated';
+@use '../components/breadcrumb/breadcrumb.utilities.generated';
+@use '../components/button/button.utilities.generated';
+@use '../components/card/card.utilities.generated';
+@use '../components/carousel/carousel.utilities.generated';
+@use '../components/hero/hero.utilities.generated';
+@use '../components/page-aside/page-aside.utilities.generated';
+@use '../components/section/section.utilities.generated';
+@use '../components/swiper/swiper.utilities.generated';
+@use '../components/testcomponent/testcomponent.utilities.generated';
+@use '../components/testimonial/testimonial.utilities.generated';
+
+// Page utilities (2 found)
+@use 'pages/about.utilities.generated';
+@use 'pages/index.utilities.generated';
 
 // Page styles (0 found)
 // none yet — run: npm run page <name>

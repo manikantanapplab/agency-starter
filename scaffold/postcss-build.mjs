@@ -36,7 +36,11 @@ for (const file of files) {
   try {
     execSync(`npx postcss "${file}" --output "${file}" --config postcss.config.js`, {
       stdio: 'pipe',
-      env: { ...process.env, NODE_ENV: 'production' }
+      env: {
+        ...process.env,
+        NODE_ENV: 'production',
+        PURGECSS_TARGET: file,
+      }
     });
     const after = (await fs.stat(file)).size;
     totalBefore += before;

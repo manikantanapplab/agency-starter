@@ -83,7 +83,8 @@
 // @include fluid-steps((font-size, line-height), (32px, 52px));
 // @include fluid-steps(font-size, (32px, 52px), (375px, 1440px));
 
-@mixin _fluid-steps-one($prop, $vals, $bps) {
+@mixin _fluid-steps-one($prop, $vals, $bps, $important: false) {
+  $important-suffix: if($important, ' !important', '');
   $nVals: length($vals);
   $nBps:  length($bps);
 
@@ -102,7 +103,7 @@
   }
 
   @if $nVals == 2 {
-    #{$prop}: fluid-value(nth($vals, 1), nth($vals, 2), $bp1, $bpL);
+    #{$prop}: #{fluid-value(nth($vals, 1), nth($vals, 2), $bp1, $bpL)}#{$important-suffix};
   }
 
   @else if $nVals == 3 {
@@ -110,9 +111,9 @@
       if($nBps >= 3, nth($bps, 2),
         math.div((math.div($bp1, 1px) + math.div($bpL, 1px)), 2) * 1px)
     );
-    #{$prop}: fluid-value(nth($vals, 1), nth($vals, 2), $bp1, $bpM);
+    #{$prop}: #{fluid-value(nth($vals, 1), nth($vals, 2), $bp1, $bpM)}#{$important-suffix};
     @media (min-width: #{$bpM}) {
-      #{$prop}: fluid-value(nth($vals, 2), nth($vals, 3), $bpM, $bpL);
+      #{$prop}: #{fluid-value(nth($vals, 2), nth($vals, 3), $bpM, $bpL)}#{$important-suffix};
     }
   }
 
@@ -122,26 +123,26 @@
     }
     $bp2: _len(nth($bps, 2));
     $bp3: _len(nth($bps, 3));
-    #{$prop}: fluid-value(nth($vals, 1), nth($vals, 2), $bp1, $bp2);
+    #{$prop}: #{fluid-value(nth($vals, 1), nth($vals, 2), $bp1, $bp2)}#{$important-suffix};
     @media (min-width: #{$bp2}) {
-      #{$prop}: fluid-value(nth($vals, 2), nth($vals, 3), $bp2, $bp3);
+      #{$prop}: #{fluid-value(nth($vals, 2), nth($vals, 3), $bp2, $bp3)}#{$important-suffix};
     }
     @media (min-width: #{$bp3}) {
-      #{$prop}: fluid-value(nth($vals, 3), nth($vals, 4), $bp3, $bpL);
+      #{$prop}: #{fluid-value(nth($vals, 3), nth($vals, 4), $bp3, $bpL)}#{$important-suffix};
     }
   }
 }
 
-@mixin fluid-steps($props, $vals, $bps: (320px, 768px, 1200px, 1920px)) {
+@mixin fluid-steps($props, $vals, $bps: (320px, 768px, 1200px, 1920px), $important: false) {
   $props-list: if(type-of($props) == 'list', $props, ($props,));
   @each $prop in $props-list {
-    @include _fluid-steps-one($prop, $vals, $bps);
+    @include _fluid-steps-one($prop, $vals, $bps, $important);
   }
 }
 
 // Simple 2-point shorthand — backward compatible
-@mixin fluid($prop, $min, $max, $vmin: 320px, $vmax: 1920px) {
-  @include fluid-steps($prop, ($min, $max), ($vmin, $vmax));
+@mixin fluid($prop, $min, $max, $vmin: 320px, $vmax: 1920px, $important: false) {
+  @include fluid-steps($prop, ($min, $max), ($vmin, $vmax), $important);
 }
 
 
@@ -214,4 +215,3 @@
   padding-inline-start: $start;
   padding-inline-end: $end;
 }
-

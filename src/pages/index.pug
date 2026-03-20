@@ -1,15 +1,9 @@
 extends ../layouts/_base.pug
 
 block pagecss
+  link(rel="stylesheet" href="assets/css/pages/index.css")
 
 block componentcss
-  link(rel="stylesheet" href="assets/css/components/button.css")
-  link(rel="stylesheet" href="assets/css/components/card.css")
-  link(rel="stylesheet" href="assets/css/components/carousel.css")
-  link(rel="stylesheet" href="assets/css/components/hero.css")
-  link(rel="stylesheet" href="assets/css/components/section.css")
-  link(rel="stylesheet" href="assets/css/components/swiper.css")
-  link(rel="stylesheet" href="assets/css/components/testcomponent.css")
 
 block title
   | Home | BS Package v14
@@ -64,6 +58,13 @@ block content
         h2.section-title A Complete Frontend System
         p.section-text Everything your team needs to build fast, consistent frontends.
       +cardGrid(cards, 3)
+  
+  section.mt-24
+    .container
+      .section-header.centered
+        span.section-tag API Showcase
+        h2.section-title Explore Our API Library
+        p.section-text Browse our collection of APIs for various categories and use cases.
 
 block scripts
   script(src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js")

@@ -1,0 +1,18 @@
+@layer components {
+  .testcomponent {
+    padding-block: var(--section-padding-y);
+
+    &-title {
+      font-size: var(--text-3xl);
+      font-weight: var(--font-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-4);
+    }
+
+    &-text {
+      font-size: var(--text-lg);
+      color: var(--color-text-secondary);
+      max-width: 65ch;
+    }
+  }
+}

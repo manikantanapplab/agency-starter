@@ -1,5 +1,4 @@
 @use "sass:map";
-@use '../utilities/mixins' as *;
 
 @layer utilities {
   $color-map: (
@@ -19,75 +18,6 @@
 
     .text-#{$name} {
       color: #{$color} !important;
-    }
-  }
-
-  // ── Dynamic gap utilities: gap-1 to gap-50 ─────────────────
-  @for $i from 1 through 50 {
-    .g-#{$i} {
-      gap: rem($i);
-    }
-
-    // g-16 = 16px, g-24 = 24px
-  }
-
-  // ── Dynamic font-size utilities: fs-10 to fs-100 ───────────
-  @for $i from 10 through 100 {
-    .fs-#{$i} {
-      font-size: rem($i);
-    }
-
-    // fs-20=20px, fs-48=48px etc.
-  }
-
-  // Breakpoints
-  $breakpoints: (
-    'sm':  576px,
-    'md':  768px,
-    'lg':  992px,
-    'xl':  1200px,
-    'xxl': 1400px,
-  );
-
-  // ── Margin utilities ────────────────────────────────────────
-  @for $i from 1 through 100 {
-    .mb-#{$i} { margin-block-end:    rem($i); }
-    .mt-#{$i} { margin-block-start:  rem($i); }
-    .ms-#{$i} { margin-inline-start: rem($i); }
-    .me-#{$i} { margin-inline-end:   rem($i); }
-    .mx-#{$i} { margin-inline:       rem($i); }
-    .my-#{$i} { margin-block:        rem($i); }
-
-    @each $bp, $val in $breakpoints {
-      @media (min-width: $val) {
-        .mb-#{$bp}-#{$i} { margin-block-end:    rem($i); }
-        .mt-#{$bp}-#{$i} { margin-block-start:  rem($i); }
-        .ms-#{$bp}-#{$i} { margin-inline-start: rem($i); }
-        .me-#{$bp}-#{$i} { margin-inline-end:   rem($i); }
-        .mx-#{$bp}-#{$i} { margin-inline:       rem($i); }
-        .my-#{$bp}-#{$i} { margin-block:        rem($i); }
-      }
-    }
-  }
-
-  // ── Padding utilities ───────────────────────────────────────
-  @for $i from 1 through 100 {
-    .pb-#{$i} { padding-block-end:    rem($i); }
-    .pt-#{$i} { padding-block-start:  rem($i); }
-    .ps-#{$i} { padding-inline-start: rem($i); }
-    .pe-#{$i} { padding-inline-end:   rem($i); }
-    .px-#{$i} { padding-inline:       rem($i); }
-    .py-#{$i} { padding-block:        rem($i); }
-
-    @each $bp, $val in $breakpoints {
-      @media (min-width: $val) {
-        .pb-#{$bp}-#{$i} { padding-block-end:    rem($i); }
-        .pt-#{$bp}-#{$i} { padding-block-start:  rem($i); }
-        .ps-#{$bp}-#{$i} { padding-inline-start: rem($i); }
-        .pe-#{$bp}-#{$i} { padding-inline-end:   rem($i); }
-        .px-#{$bp}-#{$i} { padding-inline:       rem($i); }
-        .py-#{$bp}-#{$i} { padding-block:        rem($i); }
-      }
     }
   }
 }

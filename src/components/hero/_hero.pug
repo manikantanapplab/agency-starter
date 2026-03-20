@@ -11,9 +11,9 @@ mixin hero(data)
       .hero-content
         if data.tag
           span.hero-tag= data.tag
-        h1.hero-title= data.title
+        h1.hero-title.fs-18f24f30= data.title
         if data.text
-          p.hero-text= data.text
+          p.hero-text.fs-14f22= data.text
         if data.primaryBtn || data.secondaryBtn
           .hero-actions
             if data.primaryBtn

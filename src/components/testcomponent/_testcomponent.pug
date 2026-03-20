@@ -1,0 +1,9 @@
+//- Testcomponent component — usage: +testcomponent({ title: '', text: '' })
+mixin testcomponent(data)
+  section.testcomponent.py-24f70
+    .container
+      if data.title
+        h2.testcomponent-title.fs-24f30f40.mb-24f34= data.title
+      if data.text
+        p.testcomponent-text= data.text
+      block

@@ -141,7 +141,7 @@ for (const file of pageFiles) {
     const links = usedComps
       .map(c => `  link(rel="stylesheet" href="assets/css/components/${c}.css")`)
       .join('\n');
-    pageBlock = `\nblock pagecss\n`;
+    pageBlock = `\nblock pagecss\n  link(rel="stylesheet" href="assets/css/pages/${pageName}.css")\n`;
     compBlock = usedComps.length
       ? `\nblock componentcss\n${links}\n`
       : `\nblock componentcss\n`;
